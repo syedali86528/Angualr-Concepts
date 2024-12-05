@@ -1,0 +1,64 @@
+rxjs-learning .ts
+@ViewChild('validate')
+  validate: ElementRef | undefined;
+
+  constructor() { }
+
+  agent!: Observable<String>;
+  agentNames: String[] = [];
+
+  studentList = ['ram', 'laxman', 'sita', 'hanuman'];
+  students: Observable<String[]> = of(this.studentList);
+  listOfStudent: String[] = [];
+
+  studentObj = {
+    id: 1,
+    name: 'laxman',
+  };
+  student$: Observable<object> = of(this.studentObj);
+  studentKaObject!: object;
+
+  ngOnInit(): void {
+    this.agent = new Observable(function (observer) {
+      try {
+        observer.next('ram'), observer.next('laxman'), observer.next('sita');
+      } catch (e) {
+        observer.error(e);
+      }
+    });
+
+    this.agent.subscribe((data) => {
+      this.agentNames.push(data);
+    });
+    this.students.subscribe((data) => {
+      this.listOfStudent.push(...data);
+    });
+    this.student$.subscribe((data) => {
+      this.studentKaObject = data;
+    });
+
+    const button = document.getElementById('myButton');
+    // const click$ = fromEvent(button, 'click');
+
+    // click$.subscribe((event) => {
+    //   console.log('Button clicked!', event);
+    // });
+  }
+
+  rxjsEventObservable() {
+    const btnObservable$ = fromEvent(this.validate?.nativeElement, 'click');
+    btnObservable$.subscribe((data) => {
+      console.log(data);
+    });
+  }
+
+
+  rxjs learning .html
+  <div *ngFor="let agentNames of agentNames">{{ agentNames }}</div>
+<br>
+<div *ngFor="let listOfStudent of listOfStudent">{{listOfStudent}}</div>
+<br>
+<div>{{studentKaObject | json}}</div>
+<br>
+<button id="myButton">Click me !!</button>
+

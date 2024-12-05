@@ -1,0 +1,11 @@
+<!-- interpolaton c -> v -->
+<br>
+{{ title }}
+<!-- property binding c -> v -->
+<p [align]="position">Hello Angular</p>
+<br />
+<!-- event binding v -> c  -->
+<button (click)="changePosition()">Change position</button>
+<br />
+<!-- 2 way binding c <-> v -->
+<input [(ngModel)]="position" />

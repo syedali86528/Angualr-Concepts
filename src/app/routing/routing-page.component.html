@@ -1,0 +1,17 @@
+<h1>Angular Routing Example</h1>
+<div class="container">
+    <nav class="sidebar">
+        <a routerLink="/directives">Directives</a>
+        <br>
+        <a routerLink="/data-binding">Data Binding</a>
+        <br>
+        <a routerLink="/dependency-injection">Dependency Injection/Services</a>
+        <br>
+        <a routerLink="/rxjs">RxJS</a>
+    </nav>
+
+    <!-- This is where the routed component will be displayed -->
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

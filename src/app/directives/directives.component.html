@@ -1,0 +1,18 @@
+<p>directives works!</p>
+<!-- *ngIf -->
+<h1>*ngIf</h1>
+<button (click)="toggle()">SHOW!!</button>
+<p *ngIf="showMessage">Here we can see message!!!</p>
+<br />
+<!-- *ngFor -->
+<h1>*ngFor</h1>
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul>
+<!-- *ngSwitch -->
+<h1>*ngSwitch</h1>
+<div [ngSwitch]="viewMode">
+    <p *ngSwitchCase="'home'">home</p>
+    <p *ngSwitchCase="'car'">car</p>
+    <p *ngSwitchCase="'office'">office</p>
+</div>
